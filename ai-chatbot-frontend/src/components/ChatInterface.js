@@ -13,7 +13,7 @@ const ChatInterface = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/query", {
+      const response = await axios.post("https://wild-lion-leather-jacket.cyclic.app/query", {
         query: inputText,
       });
       const responseData = response.data;
