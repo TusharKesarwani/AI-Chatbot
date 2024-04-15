@@ -1,0 +1,21 @@
+{
+  "name": "ai-chatbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "npm install --prefix ai-chatbot-frontend",
+    "server-install": "npm install --prefix chatbot-backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TusharKesarwani/AI-Chatbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TusharKesarwani/AI-Chatbot/issues"
+  },
+  "homepage": "https://github.com/TusharKesarwani/AI-Chatbot#readme"
+}
