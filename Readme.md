@@ -12,6 +12,27 @@ This project implements an AI chat bot for an ed-tech website to assist users wi
 - **Data Sharing with Sales Team**: Shares user data and chat transcripts with the sales executive team for follow-up and analysis purposes.
 - **Performance Monitoring**: Implements monitors to track the efficiency and effectiveness of the chat bot.
 
+## FAQ Questions
+1. `Suitable for beginner or advanced users ?`
+2. `Can I learn at my own pace?`
+3. `What type of assignment do you give ?`
+4. `What are the pre-requirement for this course ?`
+5. `How long does this course take to complete ?`
+6. `How much does the course cost ?`
+7. `How is the doubt support ?`
+8. `Does this course offer placement opportunities also ?`
+9. `How is the course different from other platform courses ?`
+10. `Is there any money back guarantee if I did not like the course ?`
+11. `Is this course relevant in todays market ?`
+12. `Is good DSA a prerequisite for this course ?`
+13. `How much I can make after completing this course ?`
+14. `Can I pay in EMI for this course ?`
+15. `Does this course offer financial aid for under-previleged people ?`
+16. `Does this course offer any certificate ?`
+17. `Where can I get testimonials for this course ?`
+18. `Who is the mentor for this course ?`
+19. `Is it an online or offline course ?`
+
 ## Installation
 1. Clone the repository: `git clone https://github.com/TusharKesarwani/AI-Chatbot.git`
 2. Navigate to the project directory: `cd AI-Chatbot`
