@@ -17,8 +17,8 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-const MONGODB_URL = 'mongodb://0.0.0.0:27017/chatbotDB';
-mongoose.connect(process.env.MONGODB_URL);
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb://0.0.0.0:27017/chatbotDB";
+mongoose.connect(MONGODB_URL);
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');

@@ -17,12 +17,10 @@ exports.handleUserQuery = async (req, res) => {
         answer: faq.answer,
       }));
       res.json({ response });
-      console.log(response);
     } else {
-      // If no relevant FAQs are found, fallback to a generic response
+      // If no relevant FAQs are found, send sorry message
       res.json({
-        response:
-          "I'm sorry, I couldn't find an answer to your query. Please ask something else or contact our support team for assistance.",
+        response: "I'm sorry, I couldn't find an answer to your query.",
       });
     }
   } catch (error) {

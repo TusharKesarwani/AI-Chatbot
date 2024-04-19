@@ -13,36 +13,58 @@ const ChatInterface = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://wild-lion-leather-jacket.cyclic.app/query", {
-        query: inputText,
-      });
+      // User sends a query
+      const response = await axios.post(
+        "https://wild-lion-leather-jacket.cyclic.app/query",
+        {
+          query: inputText,
+        }
+      );
       const responseData = response.data;
 
-      // Update messages state array with the new user message object
+      // Update messages state array with the user query
       setMessages([...messages, { text: inputText, sender: "user" }]);
 
       // Delay the bot response to simulate a more realistic chat experience
       setTimeout(() => {
-        // Update messages state array with the new bot message object
-        if(Array.isArray(responseData.response)){
-            setMessages([
-              ...messages,
-              { text: inputText, sender: "user" },
-              { text: responseData.response[0].answer, sender: "bot" },
-            ]);
+        // If bot response is available, display it
+        if (Array.isArray(responseData.response)) {
+          setMessages([
+            ...messages,
+            { text: inputText, sender: "user" },
+            { text: responseData.response[0].answer, sender: "bot" },
+          ]);
+        } else {
+          // If bot response is not available, display sorry message and option to escalate
+          setMessages([
+            ...messages,
+            { text: inputText, sender: "user" },
+            {
+              text: "I'm sorry, I couldn't find an answer to your query.",
+              sender: "bot",
+            },
+            {
+              text: "Would you like to escalate to our doubt assistant?",
+              sender: "bot",
+              escalate: true, // Added a flag to identify the escalate message
+            },
+          ]);
         }
-        else {
-            setMessages([
-              ...messages,
-              { text: inputText, sender: "user" },
-              { text: responseData.response, sender: "bot" },
-            ]);
-        }
-    }, 2000);
+      }, 2000);
       setInputText("");
     } catch (error) {
       console.error("Error sending query:", error);
     }
+  };
+
+  const handleEscalate = async () => {
+    // Remove the message prompting the user to escalate
+    const newMessages = messages.filter((message) => message.escalate !== true);
+    // Send the query to doubt assistant
+    setMessages([
+      ...newMessages,
+      { text: "Sending query to doubt assistant...", sender: "bot" },
+    ]);
   };
 
   return (
@@ -57,6 +79,11 @@ const ChatInterface = () => {
             )}
           </div>
         ))}
+        {messages.some((message) => message.escalate) && (
+          <button onClick={handleEscalate}>
+            Yes, escalate to doubt assistant
+          </button>
+        )}
       </div>
       <form onSubmit={handleSubmit}>
         <input
