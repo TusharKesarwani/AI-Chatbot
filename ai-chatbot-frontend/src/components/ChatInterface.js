@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ChatInterface.css";
 
 const ChatInterface = () => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState("");
+
+  useEffect(() => {
+    // Add initial message when component mounts
+    setMessages([{ text: "Hi, How can I help you today?", sender: "bot" }]);
+  }, []);
 
   const handleInputChange = (event) => {
     setInputText(event.target.value);
