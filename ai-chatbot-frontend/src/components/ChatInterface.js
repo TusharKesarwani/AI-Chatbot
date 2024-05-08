@@ -20,7 +20,7 @@ const ChatInterface = () => {
     try {
       // User sends a query
       const response = await axios.post(
-        "https://wild-lion-leather-jacket.cyclic.app/query",
+        "https://ai-chatbot-i2k7.onrender.com/query",
         {
           query: inputText,
         }
